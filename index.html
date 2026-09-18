@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Club Tlahuicas | Roller Hockey</title>
+
+    <meta name="description" content="Club Tlahuicas de Roller Hockey en Jiutepec, Morelos. Entrenamientos, partidos y formación deportiva.">
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f5;
+            color: #111116;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(17, 17, 22, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .navbar {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            font-size: 21px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            background: #f5e500;
+            display: grid;
+            place-items: center;
+            color: #111116;
+            font-weight: 900;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #f5e500;
+        }
+
+        .nav-button {
+            background: #f5e500;
+            color: #111116 !important;
+            padding: 11px 18px;
+            border-radius: 6px;
+        }
+
+        .nav-button:hover {
+            background: white;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 92vh;
+            padding-top: 76px;
+            background:
+                linear-gradient(90deg, rgba(10,10,12,.95) 0%, rgba(10,10,12,.72) 46%, rgba(10,10,12,.20) 100%),
+                url("01-bandera.jpg") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 760px;
+            padding: 90px 0;
+        }
+
+        .eyebrow {
+            color: #f5e500;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 110px);
+            line-height: .88;
+            text-transform: uppercase;
+            font-weight: 950;
+            letter-spacing: -5px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            color: #f5e500;
+        }
+
+        .hero p {
+            max-width: 580px;
+            font-size: 19px;
+            color: #e7e7e7;
+            margin-bottom: 34px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 24px;
+            border-radius: 6px;
+            font-weight: 900;
+            transition: .25s;
+        }
+
+        .button-yellow {
+            background: #f5e500;
+            color: #111116;
+        }
+
+        .button-yellow:hover {
+            transform: translateY(-3px);
+            background: white;
+        }
+
+        .button-outline {
+            border: 1px solid rgba(255,255,255,.5);
+            color: white;
+        }
+
+        .button-outline:hover {
+            background: white;
+            color: #111116;
+        }
+
+        /* =========================
+           INTRO
+        ========================== */
+
+        .intro {
+            padding: 110px 0;
+            background: white;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .section-label {
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 900;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .intro h2 {
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: .95;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .intro h2 span {
+            color: #f5e500;
+        }
+
+        .intro p {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+        .intro-image {
+            height: 500px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* =========================
+           HORARIOS
+        ========================== */
+
+        .schedule {
+            background: #111116;
+            color: white;
+            padding: 100px 0;
+        }
+
+        .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 45px;
+        }
+
+        .schedule h2 {
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: .95;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+        }
+
+        .schedule h2 span {
+            color: #f5e500;
+        }
+
+        .schedule-header p {
+            max-width: 420px;
+            color: #aaa;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .schedule-card {
+            border: 1px solid #333;
+            padding: 32px;
+            background: #19191e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: #f5e500;
+        }
+
+        .schedule-card h3 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .schedule-card .time {
+            color: #f5e500;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .schedule-card p {
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+        /* =========================
+           GALERÍA
+        ========================== */
+
+        .gallery {
+            padding: 110px 0;
+            background: #f7f7f5;
+        }
+
+        .gallery-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 45px;
+            gap: 30px;
+        }
+
+        .gallery-heading h2 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: .9;
+            text-transform: uppercase;
+            letter-spacing: -4px;
+        }
+
+        .gallery-heading h2 span {
+            color: #f5e500;
+        }
+
+        .gallery-heading p {
+            max-width: 400px;
+            color: #666;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 14px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #ddd;
+            min-height: 300px;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 7;
+        }
+
+        .gallery-item:nth-child(2) {
+            grid-column: span 5;
+        }
+
+        .gallery-item:nth-child(3) {
+            grid-column: span 4;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: span 4;
+        }
+
+        .gallery-item:nth-child(5) {
+            grid-column: span 4;
+        }
+
+        .gallery-item:nth-child(6) {
+            grid-column: span 5;
+        }
+
+        .gallery-item:nth-child(7) {
+            grid-column: span 7;
+        }
+
+        .gallery-item:nth-child(8) {
+            grid-column: span 7;
+        }
+
+        .gallery-item:nth-child(9) {
+            grid-column: span 5;
+        }
+
+        .gallery-item:nth-child(10) {
+            grid-column: span 12;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding: 45px 20px 20px;
+            color: white;
+            font-weight: 900;
+            background: linear-gradient(transparent, rgba(0,0,0,.8));
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           CLUB
+        ========================== */
+
+        .club {
+            padding: 110px 0;
+            background: white;
+        }
+
+        .club-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .club-image {
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .club h2 {
+            font-size: clamp(42px, 6vw, 70px);
+            text-transform: uppercase;
+            line-height: .9;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .club h2 span {
+            color: #f5e500;
+        }
+
+        .club p {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            margin-top: 35px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            padding: 15px;
+            background: #f4f4f1;
+        }
+
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            background: #f5e500;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+        }
+
+        /* =========================
+           WHATSAPP CTA
+        ========================== */
+
+        .contact {
+            padding: 110px 0;
+            background: #f5e500;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .contact h2 {
+            font-size: clamp(42px, 7vw, 80px);
+            line-height: .9;
+            text-transform: uppercase;
+            letter-spacing: -4px;
+        }
+
+        .contact p {
+            margin-top: 20px;
+            max-width: 600px;
+            font-size: 18px;
+        }
+
+        .whatsapp-button {
+            background: #111116;
+            color: white;
+            padding: 20px 28px;
+            border-radius: 7px;
+            font-size: 17px;
+            font-weight: 900;
+            white-space: nowrap;
+            transition: .25s;
+        }
+
+        .whatsapp-button:hover {
+            background: white;
+            color: #111116;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #111116;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .footer-logo span {
+            color: #f5e500;
+        }
+
+        .footer-text {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* =========================
+           BOTÓN WHATSAPP FLOTANTE
+        ========================== */
+
+        .floating-whatsapp {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+            font-weight: 900;
+            z-index: 999;
+            box-shadow: 0 8px 30px rgba(0,0,0,.25);
+            transition: .25s;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                height: 65px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 85vh;
+                padding-top: 65px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .intro,
+            .schedule,
+            .gallery,
+            .club,
+            .contact {
+                padding: 75px 0;
+            }
+
+            .intro-grid,
+            .club-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .intro-image {
+                height: 400px;
+            }
+
+            .club-image {
+                height: 450px;
+            }
+
+            .schedule-header,
+            .gallery-heading,
+            .contact-box {
+                display: block;
+            }
+
+            .schedule-header p,
+            .gallery-heading p {
+                margin-top: 20px;
+            }
+
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item,
+            .gallery-item:nth-child(n) {
+                grid-column: span 1;
+                min-height: 220px;
+            }
+
+            .gallery-item:first-child,
+            .gallery-item:last-child {
+                grid-column: span 2;
+            }
+
+            .gallery-item img {
+                min-height: 220px;
+            }
+
+            .whatsapp-button {
+                display: inline-block;
+                margin-top: 30px;
+            }
+
+            .footer-grid {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item,
+            .gallery-item:nth-child(n),
+            .gallery-item:first-child,
+            .gallery-item:last-child {
+                grid-column: span 1;
+            }
+
+            .gallery-item img {
+                min-height: 260px;
+            }
+
+            .floating-whatsapp {
+                width: 56px;
+                height: 56px;
+                right: 18px;
+                bottom: 18px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         MENÚ
+    ========================== -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="#inicio" class="logo">
+
+                <div class="logo-mark">
+                    TH
+                </div>
+
+                <div>
+                    TLAHUICAS
+                    <small style="display:block;font-size:9px;letter-spacing:3px;color:#aaa;">
+                        ROLLER HOCKEY
+                    </small>
+                </div>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="#club">El club</a>
+
+                <a href="#horarios">Entrenamientos</a>
+
+                <a href="#galeria">Galería</a>
+
+                <a href="#contacto" class="nav-button">
+                    Pedir informes
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        Club Tlahuicas
+                    </div>
+
+                    <h1>
+                        Vive el<br>
+                        <span>hockey.</span>
+                    </h1>
+
+                    <p>
+                        Somos un club de Roller Hockey que forma jugadores,
+                        fomenta el deporte y construye una comunidad dentro y
+                        fuera de la pista.
+                    </p>
+
+                    <div class="buttons">
+
+                        <a href="#horarios" class="button button-yellow">
+                            Ver entrenamientos
+                        </a>
+
+                        <a href="#galeria" class="button button-outline">
+                            Conocer el club
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EL CLUB
+        ========================== -->
+
+        <section class="intro" id="club">
+
+            <div class="container intro-grid">
+
+                <div>
+
+                    <div class="section-label">
+                        Nuestra comunidad
+                    </div>
+
+                    <h2>
+                        Más que un<br>
+                        <span>equipo.</span>
+                    </h2>
+
+                    <p>
+                        Club Tlahuicas es un espacio para aprender,
+                        entrenar, competir y disfrutar del Roller Hockey.
+                    </p>
+
+                    <p>
+                        Niñas, niños, jóvenes y familias forman parte de
+                        una comunidad que comparte la pasión por el deporte.
+                    </p>
+
+                    <a href="#contacto" class="button button-yellow">
+                        Quiero información
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <img
+                        src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\02-equipo.jpg.jpeg"
+                        alt="Equipo del Club Tlahuicas"
+                        class="intro-image"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HORARIOS
+        ========================== -->
+
+        <section class="schedule" id="horarios">
+
+            <div class="container">
+
+                <div class="schedule-header">
+
+                    <div>
+
+                        <div class="section-label" style="color:#aaa;">
+                            Entrenamientos
+                        </div>
+
+                        <h2>
+                            Ponte los<br>
+                            <span>patines.</span>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Entrenamos durante toda la semana para mejorar
+                        técnica, condición física, manejo del stick y
+                        trabajo en equipo.
+                    </p>
+
+                </div>
+
+
+                <div class="schedule-grid">
+
+                    <div class="schedule-card">
+
+                        <h3>
+                            Lunes
+                        </h3>
+
+                        <div class="time">
+                            6:00 — 8:00 PM
+                        </div>
+
+                        <p>
+                            Entrenamiento entre semana.
+                        </p>
+
+                    </div>
+
+
+                    <div class="schedule-card">
+
+                        <h3>
+                            Miércoles
+                        </h3>
+
+                        <div class="time">
+                            6:00 — 8:00 PM
+                        </div>
+
+                        <p>
+                            Entrenamiento entre semana.
+                        </p>
+
+                    </div>
+
+
+                    <div class="schedule-card">
+
+                        <h3>
+                            Viernes
+                        </h3>
+
+                        <div class="time">
+                            6:00 — 8:00 PM
+                        </div>
+
+                        <p>
+                            Entrenamiento entre semana.
+                        </p>
+
+                    </div>
+
+
+                    <div class="schedule-card">
+
+                        <h3>
+                            Domingo
+                        </h3>
+
+                        <div class="time">
+                            9:00 AM — 12:00 PM
+                        </div>
+
+                        <p>
+                            Entrenamiento dominical.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GALERÍA
+        ========================== -->
+
+        <section class="gallery" id="galeria">
+
+            <div class="container">
+
+                <div class="gallery-heading">
+
+                    <div>
+
+                        <div class="section-label">
+                            Dentro y fuera de la pista
+                        </div>
+
+                        <h2>
+                            Momentos<br>
+                            <span>del club.</span>
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Entrenamientos, partidos, torneos y momentos
+                        compartidos por la familia Tlahuicas.
+                    </p>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\03-jugadores.jpg.jpeg"
+                            alt="Jugadores del Club Tlahuicas"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Nuestra gente
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\04-equipo-cancha.jpg.jpeg"
+                            alt="Equipo Tlahuicas en cancha"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            En la pista
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\05-entrenamiento.jpg.jpeg"
+                            alt="Entrenamiento de Tlahuicas"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Entrenamiento
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\06-evento.jpg.jpeg"
+                            alt="Evento deportivo"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Competencia
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\07-desfile.jpg.jpeg"
+                            alt="Desfile del Club Tlahuicas"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Comunidad
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\08-club.jpg.jpeg"
+                            alt="Club Tlahuicas"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Club Tlahuicas
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\09-partido.jpg.jpeg"
+                            alt="Partido de Roller Hockey"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Día de partido
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\10-partido-vertical.jpg.jpeg"
+                            alt="Partido de Roller Hockey"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Hockey
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\01-bandera.jpg.png"
+                            alt="Bandera del Club Tlahuicas"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Orgullo Tlahuicas
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-item">
+
+                        <img
+                            src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\02-equipo.jpg.jpeg"
+                            alt="Equipo del Club Tlahuicas"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-caption">
+                            Una familia
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             IDENTIDAD DEL CLUB
+        ========================== -->
+
+        <section class="club">
+
+            <div class="container club-grid">
+
+                <div>
+
+                    <img
+                        src="C:\Users\zmora\OneDrive\Desktop\TLahuicas-Web\08-club.jpg.jpeg"
+                        alt="Club Tlahuicas"
+                        class="club-image"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <div class="section-label">
+                        Club Tlahuicas
+                    </div>
+
+                    <h2>
+                        Una pasión<br>
+                        <span>compartida.</span>
+                    </h2>
+
+                    <p>
+                        El Roller Hockey combina velocidad, habilidad,
+                        estrategia y compañerismo.
+                    </p>
+
+                    <p>
+                        En Tlahuicas buscamos que cada jugador pueda
+                        desarrollarse dentro de un ambiente deportivo,
+                        familiar y divertido.
+                    </p>
+
+
+                    <div class="features">
+
+                        <div class="feature">
+
+                            <div class="feature-icon">
+                                01
+                            </div>
+
+                            <div>
+                                <strong>Entrenamiento</strong><br>
+                                Técnica y desarrollo deportivo.
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <div class="feature-icon">
+                                02
+                            </div>
+
+                            <div>
+                                <strong>Comunidad</strong><br>
+                                Jugadores y familias unidos.
+                            </div>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <div class="feature-icon">
+                                03
+                            </div>
+
+                            <div>
+                                <strong>Competencia</strong><br>
+                                Partidos, torneos y experiencias.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACTO WHATSAPP
+        ========================== -->
+
+        <section class="contact" id="contacto">
+
+            <div class="container contact-box">
+
+                <div>
+
+                    <div class="section-label">
+                        ¿Quieres formar parte?
+                    </div>
+
+                    <h2>
+                        Mándanos<br>
+                        un mensaje.
+                    </h2>
+
+                    <p>
+                        Si quieres conocer los entrenamientos, horarios,
+                        requisitos o saber cómo integrarte al Club Tlahuicas,
+                        escríbenos directamente por WhatsApp.
+                    </p>
+
+                </div>
+
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/524436970844?text=Hola%20Club%20Tlahuicas,%20me%20gustaría%20pedir%20informes%20sobre%20los%20entrenamientos."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    💬 Pedir informes por WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container footer-grid">
+
+            <div class="footer-logo">
+                CLUB <span>TLAHUICAS</span>
+            </div>
+
+            <div class="footer-text">
+                Roller Hockey · Jiutepec, Morelos
+            </div>
+
+            <div class="footer-text">
+                © 2026 Club Tlahuicas
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         WHATSAPP FLOTANTE
+    ========================== -->
+
+    <a
+        href="https://wa.me/524436970844?text=Hola%20Club%20Tlahuicas,%20me%20gustaría%20pedir%20informes."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="floating-whatsapp"
+        aria-label="Contactar por WhatsApp"
+    >
+        ☎
+    </a>
+
+
+</body>
+</html>
